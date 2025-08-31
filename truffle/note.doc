@@ -1,0 +1,65 @@
+Truffle Summary
+================
+
+install Truffle globally
+npm install -g truffle
+
+truffle init
+initialize a new Truffle project in current directory and creates 3 folders:
+- contracts: where you write your smart contracts
+- migrations: where you write migration scripts
+- test: where you write your tests
+in addition, it creates a truffle-config.js file that contains the configuration for your project.
+
+npm init -y
+
+npm install --save @openzeppelin/contracts
+
+Copy the ERC721 contract from OpenZeppelin wizard and paste it into a new file in the contracts directory, e.g., contracts/MyNFT.sol. 
+(imports should match the OpenZeppelin version you installed and file locations)
+
+truffle devolop - this command starts a local development blockchain and opens a console where you can interact with your contracts.
+You can deploy your contracts, test them, and interact with them directly from this console.
+
+create the migration script in the migrations directory, e.g., 1_initial_migration.js.
+
+migrate - this command deploys your contracts to the local blockchain. It runs the migration scripts in the migrations directory in order.
+
+this command creates the build directory, which contains the compiled contracts and their ABI files.
+
+Then we can install ganache and run it to create a local blockchain for testing.
+
+Advantage of ganache over truffle devolop is that it provides a graphical interface to see transactions, accounts, and blocks, making it easier to debug and test your contracts.
+
+install ganache - npm install -g ganache 
+
+to run ganache blockchain - ganache
+
+and in another terminal we can run migrate command to deploy our contracts to the ganache blockchain.
+
+Brfore that we need to update the truffle-config.js file to point to the ganache blockchain.
+
+Truffle console is used to interact with the deployed contracts, test them, and execute transactions in different blockchain networks.
+
+truffle console --network ganache
+This command opens a console connected to the ganache network, allowing you to interact with your contracts deployed on the ganache blockchain.
+
+Deployment of a Smart Contract written in Solidity using Truffle
+
+HDWallet Provider - This is a library that allows you to use a mnemonic phrase or private key to sign transactions and manage accounts in a secure way.
+It is commonly used in conjunction with Truffle to deploy contracts to different networks.
+
+Truffle Dashboard - This is a web-based interface that allows you to manage your Truffle projects, view your contracts, and interact with them in a user-friendly way.
+In this way transactions can be signed with MetaMask and sent to the blockchain.
+
+Firast start truffle dashboard in one console and from other console migrate the contracts to the blockchain.
+
+truffle dashboard
+migrate --network dashboard
+
+When we use a public blockchain like Ethereum or a testnet like Sepolia, This is a permanat deployment, and the contract will remain on the blockchain forever. 
+
+
+
+
+
