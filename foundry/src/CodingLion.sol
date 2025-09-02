@@ -8,6 +8,13 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 
 contract CodingLion is ERC721, ERC721URIStorage, Ownable {
+    
+    function buyToken(string memory uri) public  returns (uint256) {
+        uint256 tokenId = _nextTokenId++;
+        _safeMint(msg.sender, tokenId);
+        _setTokenURI(tokenId, uri);
+        return tokenId;
+    }
     uint256 private _nextTokenId;
 
     constructor(address initialOwner)
@@ -49,4 +56,6 @@ contract CodingLion is ERC721, ERC721URIStorage, Ownable {
     {
         return super.supportsInterface(interfaceId);
     }
+
+
 }
